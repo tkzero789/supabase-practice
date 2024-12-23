@@ -75,7 +75,7 @@ export async function signInWithGoogle() {
         access_type: "offline",
         prompt: "consent",
       },
-      redirectTo: window.location.origin,
+      redirectTo: "https://supabase-practice-eta.vercel.app/my-application",
     },
   });
 
