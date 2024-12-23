@@ -68,6 +68,8 @@ export async function signout() {
 export async function signInWithGoogle() {
   const supabase = await createClient();
 
+  const redirectPath = `${process.env.NEXT_PUBLIC_SITE_URL}/my-application`;
+
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
@@ -75,7 +77,7 @@ export async function signInWithGoogle() {
         access_type: "offline",
         prompt: "consent",
       },
-      redirectTo: "https://supabase-practice-eta.vercel.app/my-application",
+      redirectTo: redirectPath,
     },
   });
 
