@@ -67,6 +67,7 @@ export async function signout() {
 
 export async function signInWithGoogle() {
   const supabase = await createClient();
+
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
@@ -74,6 +75,7 @@ export async function signInWithGoogle() {
         access_type: "offline",
         prompt: "consent",
       },
+      redirectTo: "http://localhost:3000/my-application",
     },
   });
 
